@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     var currentInterval = 0
     
     // Setting the duration of each type of interval in seconds, for testing purposes they are short.
-    let pomodoroDuration = 10 // Real: 25 * 60
-    let breakDuration = 5 //Real:  5 * 60
+    let pomodoroDuration = 5 // Real: 25 * 60
+    let breakDuration = 3 //Real:  5 * 60
     
     var timeRemaining = 0
     
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
         }
         
         //ACTION: call the reset method
-        
+        resetAll()
     }
 
     //ACTION: add the method to dismiss the view controller
