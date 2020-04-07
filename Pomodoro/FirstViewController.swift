@@ -34,8 +34,9 @@ class FirstViewController: UIViewController {
         // ACTION: Update value of completed cycles
         // ACTION: Update message label
         print("Received notification")
+        messageLabel.text = "\(completedCycles) pomodoro cycles completed today"
         
-        
+        //[REVIEW] still need to fetch number of completed cycles from View Controller Screen
     }
 }
 
