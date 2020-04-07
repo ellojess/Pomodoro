@@ -16,8 +16,8 @@ class FirstViewController: UIViewController {
     deinit {
         //ACTION: Remove observers
         print("Removed Observer")
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("receivedNotification"),
 
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("receivedNotification"), object: nil)
     }
     
     override func viewDidLoad() {
