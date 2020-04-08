@@ -46,7 +46,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         //ACTION: Set button actions for startPauseButton, resetButton and closeButton
-       
+        startPauseButton.addTarget(self, action: #selector(startPauseButtonPressed(_:)), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(resetButtonPressed(_:)), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(closeButtonPressed(_:)), for: .touchUpInside)
 
         resetAll()
         
@@ -109,7 +111,9 @@ class ViewController: UIViewController {
     }
 
     //ACTION: add the method to dismiss the view controller
-    
+    @objc func closeButtonPressed(_ sender: UIButton) {
+        print("closed button pressed")
+    }
     
     // MARK: Time Manipulation
     
