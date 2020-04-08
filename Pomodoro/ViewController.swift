@@ -89,7 +89,6 @@ class ViewController: UIViewController {
             startPauseButton.setTitle("Pause", for: .normal)
          // ACTION: Disable the Reset button
             resetButton.isUserInteractionEnabled = false
-           
             
             if currentInterval == 0 && timeRemaining == pomodoroDuration {
                 // We are at the start of a cycle
@@ -122,7 +121,7 @@ class ViewController: UIViewController {
     
     func startTimer() {
         //ACTION: create the timer, selector should be runTimer()
-        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
         
     }
     
