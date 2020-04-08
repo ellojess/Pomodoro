@@ -77,15 +77,18 @@ class ViewController: UIViewController {
         if timer.isValid {
          // Timer running
          // ACTION: Change the button’s title to “Continue”
+            startPauseButton.setTitle("Continue", for: .normal)
          // ACTION: Enable the reset button
+            resetButton.isUserInteractionEnabled = true
          // ACTION: Pause the timer, call the method pauseTimer
-            
+            pauseTimer()
            
         } else {
          // Timer stopped or hasn't started
          // ACTION: Change the button’s title to “Pause”
+            startPauseButton.setTitle("Pause", for: .normal)
          // ACTION: Disable the Reset button
-            
+            resetButton.isUserInteractionEnabled = false
            
             
             if currentInterval == 0 && timeRemaining == pomodoroDuration {
