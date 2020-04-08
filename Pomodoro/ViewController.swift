@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     var currentInterval = 0
     
     // Setting the duration of each type of interval in seconds, for testing purposes they are short.
-    let pomodoroDuration = 5 // Real: 25 * 60
+    let pomodoroDuration = 6 // Real: 25 * 60
     let breakDuration = 3 //Real:  5 * 60
     
     var timeRemaining = 0
@@ -78,8 +78,9 @@ class ViewController: UIViewController {
          // Timer running
          // ACTION: Change the button’s title to “Continue”
             startPauseButton.setTitle("Continue", for: .normal)
+            print("Continue button pressed")
          // ACTION: Enable the reset button
-            resetButton.isUserInteractionEnabled = true
+            resetButton.isEnabled = true
          // ACTION: Pause the timer, call the method pauseTimer
             pauseTimer()
            
@@ -87,8 +88,10 @@ class ViewController: UIViewController {
          // Timer stopped or hasn't started
          // ACTION: Change the button’s title to “Pause”
             startPauseButton.setTitle("Pause", for: .normal)
+            print("Pause button pressed")
          // ACTION: Disable the Reset button
-            resetButton.isUserInteractionEnabled = false
+            resetButton.isEnabled = false
+//            resetButton.isUserInteractionEnabled = false
             
             if currentInterval == 0 && timeRemaining == pomodoroDuration {
                 // We are at the start of a cycle
@@ -103,7 +106,7 @@ class ViewController: UIViewController {
     }
     
     @objc func resetButtonPressed(_ sender: UIButton) {
-        
+        print("reset button pressed")
         if timer.isValid {
             timer.invalidate()
         }
@@ -174,6 +177,7 @@ class ViewController: UIViewController {
             // ACTION: Post Notification
             resetAll()
             NotificationCenter.default.post(name: Notification.Name("receivedNotification"), object: self)
+            // [REVIEW] loop does not end after notification is posted, instead it starts over at 1 tomato
         }
     }
     
