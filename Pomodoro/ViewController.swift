@@ -122,6 +122,7 @@ class ViewController: UIViewController {
     
     func startTimer() {
         //ACTION: create the timer, selector should be runTimer()
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
         
     }
     
@@ -172,6 +173,7 @@ class ViewController: UIViewController {
             // If all intervals are complete, reset all.
             // ACTION: Post Notification
             resetAll()
+            NotificationCenter.default.post(name: Notification.Name("receivedNotification"), object: self)
         }
     }
     
