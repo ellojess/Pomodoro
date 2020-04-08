@@ -97,7 +97,7 @@ class ViewController: UIViewController {
             } else {
                 // We are in the middle of a cycle
                 // ACTION: Resume the timer.
-                startTimer()
+                runTimer()
             }
         }
     }
@@ -115,6 +115,7 @@ class ViewController: UIViewController {
     //ACTION: add the method to dismiss the view controller
     @objc func closeButtonPressed(_ sender: UIButton) {
         print("closed button pressed")
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Time Manipulation
