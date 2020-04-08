@@ -94,11 +94,11 @@ class ViewController: UIViewController {
             if currentInterval == 0 && timeRemaining == pomodoroDuration {
                 // We are at the start of a cycle
                 // ACTION: begin the cycle of intervals
-                
+                startNextInterval()
             } else {
                 // We are in the middle of a cycle
                 // ACTION: Resume the timer.
-                
+                startTimer()
             }
         }
     }
