@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     //ACTION: add the method to dismiss the view controller
     @objc func closeButtonPressed(_ sender: UIButton) {
         print("closed button pressed")
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Time Manipulation
