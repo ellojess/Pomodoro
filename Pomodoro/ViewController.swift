@@ -91,7 +91,6 @@ class ViewController: UIViewController {
             print("Pause button pressed")
          // ACTION: Disable the Reset button
             resetButton.isEnabled = false
-//            resetButton.isUserInteractionEnabled = false
             
             if currentInterval == 0 && timeRemaining == pomodoroDuration {
                 // We are at the start of a cycle
@@ -100,7 +99,6 @@ class ViewController: UIViewController {
             } else {
                 // We are in the middle of a cycle
                 // ACTION: Resume the timer.
-//                runTimer()
                 startTimer()
             }
         }
@@ -119,7 +117,6 @@ class ViewController: UIViewController {
     //ACTION: add the method to dismiss the view controller
     @objc func closeButtonPressed(_ sender: UIButton) {
         print("closed button pressed")
-//        self.timer.invalidate()
         self.dismiss(animated: true, completion: nil)
 
     }
@@ -182,7 +179,6 @@ class ViewController: UIViewController {
             // ACTION: Post Notification
             NotificationCenter.default.post(name: Notification.Name("receivedNotification"), object: self)
             resetAll()
-            // [REVIEW] loop does not end after notification is posted, instead it starts over at 1 tomato
         }
     }
     
