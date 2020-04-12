@@ -100,7 +100,8 @@ class ViewController: UIViewController {
             } else {
                 // We are in the middle of a cycle
                 // ACTION: Resume the timer.
-                runTimer()
+//                runTimer()
+                startTimer()
             }
         }
     }
@@ -118,7 +119,7 @@ class ViewController: UIViewController {
     //ACTION: add the method to dismiss the view controller
     @objc func closeButtonPressed(_ sender: UIButton) {
         print("closed button pressed")
-        self.timer.invalidate()
+//        self.timer.invalidate()
         self.dismiss(animated: true, completion: nil)
 
     }
@@ -127,7 +128,7 @@ class ViewController: UIViewController {
     
     func startTimer() {
         //ACTION: create the timer, selector should be runTimer()
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
         
     }
     
@@ -180,7 +181,7 @@ class ViewController: UIViewController {
             // If all intervals are complete, reset all.
             // ACTION: Post Notification
             NotificationCenter.default.post(name: Notification.Name("receivedNotification"), object: self)
-//            resetAll()
+            resetAll()
             // [REVIEW] loop does not end after notification is posted, instead it starts over at 1 tomato
         }
     }
