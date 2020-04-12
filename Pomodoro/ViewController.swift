@@ -118,7 +118,9 @@ class ViewController: UIViewController {
     //ACTION: add the method to dismiss the view controller
     @objc func closeButtonPressed(_ sender: UIButton) {
         print("closed button pressed")
+        self.timer.invalidate()
         self.dismiss(animated: true, completion: nil)
+
     }
     
     // MARK: Time Manipulation
@@ -164,10 +166,12 @@ class ViewController: UIViewController {
                 let tomatoes = (currentInterval + 2) / 2
                 print("\(tomatoes) tomatoes")
                 updateTomatoes(to: tomatoes)
+                resetButton.isEnabled = true
             } else {
                 // Rest break interval
                 timeRemaining = breakDuration
                 messageLabel.text = "Taking a break"
+                resetButton.isEnabled = true
             }
             updateTime()
             startTimer()
@@ -175,8 +179,8 @@ class ViewController: UIViewController {
         } else {
             // If all intervals are complete, reset all.
             // ACTION: Post Notification
-            resetAll()
             NotificationCenter.default.post(name: Notification.Name("receivedNotification"), object: self)
+//            resetAll()
             // [REVIEW] loop does not end after notification is posted, instead it starts over at 1 tomato
         }
     }
